@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <!-- 删除苹果默认的工具栏和菜单栏 -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-touch-fullscreen" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="snow" />
+  <!-- 设置苹果工具栏颜色 -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+  <meta name="format-detection" content="telephone=no, email=no" />
+  <!-- 启用360浏览器的极速模式(webkit) -->
+  <meta name="renderer" content="webkit">
+  <!-- 避免IE使用兼容模式 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+  <meta name="HandheldFriendly" content="true">
+  <!-- 微软的老式浏览器 -->
+  <meta name="MobileOptimized" content="320">
+  <!-- uc强制竖屏 -->
+  <meta name="screen-orientation" content="portrait">
+  <!-- QQ强制竖屏 -->
+  <meta name="x5-orientation" content="portrait">
+  <!-- UC强制全屏 -->
+  <meta name="full-screen" content="yes">
+  <!-- QQ强制全屏 -->
+  <meta name="x5-fullscreen" content="true">
+  <!-- UC应用模式 -->
+  <meta name="browsermode" content="application">
+  <!-- QQ应用模式 -->
+  <meta name="x5-page-mode" content="app">
+  <!-- windows phone 点击无高光 -->
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <style type="text/css">
+      .weChatDialog {
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        left: 0;
+        display: none;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        text-align: center;
+      }
+      .weChatDialog p {
+        position: relative;
+        top: 20%;
+        font-size: 16px;
+        color: #fff;
+      }
+      .weChatDialog svg {
+        position: absolute;
+        right: 6%;
+        margin-top: 2%;
+      }
+    </style>
+  <title>Q智投</title>
+</head>
+
+<body>
+  <div class="weChatDialog">
+      <svg width="48" height="48" viewBox="0 0 32 32">
+        <path fill="#fff" d="M7.414 27.414l16.586-16.586v7.172c0 1.105 0.895 2 2 2s2-0.895 2-2v-12c0-0.809-0.487-1.538-1.235-1.848-0.248-0.103-0.508-0.151-0.765-0.151v-0.001h-12c-1.105 0-2 0.895-2 2s0.895 2 2 2h7.172l-16.586 16.586c-0.391 0.39-0.586 0.902-0.586 1.414s0.195 1.024 0.586 1.414c0.781 0.781 2.047 0.781 2.828 0z"></path>
+      </svg>
+      <p>请选择在浏览器中打开下载Q智投</p>
+    </div>
+</body>
+<script type="text/javascript">
+      //https://oss-static.aqumon.com/tools/qzhitoudownload.html
+      var download = function(){
+        var UA = navigator.userAgent;
+        if(UA.indexOf("iPhone") >= 0){
+          //location.href = "https://itunes.apple.com/hk/app/aqumon/id1313188337?mt=8";
+          location.href = "https://itunes.apple.com/us/app/q%E6%99%BA%E6%8A%95/id1440560255?ls=1&mt=8";
+          return;
+        }
+        if(UA.indexOf("Android") >= 0){
+          location.href = "https://oss-static.aqumon.com/assets/apk/qzhitou/qzhitou_1.0.0.apk";
+          return;
+        }
+        location.href = "https://globalm.qzhitou.com/";
+      };
+
+      +function(){
+        window.UA = navigator.userAgent;
+        window.devicesType = "android";
+        (UA.indexOf("iPhone") > -1 || UA.indexOf("iPad") > -1) && (window.devicesType = "iPhone");
+
+        if (UA.toUpperCase().indexOf("MICROMESSENGER") > -1 && devicesType === "android") {
+            document.querySelector(".weChatDialog").style.display = "block";
+            return;
+        }
+        download();
+      }();
+
+  </script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta property="og:title" content="歡迎光臨香港八達通">
+    <meta property="og:image" content="http://www.octopus.com.hk/og/images/octopus_share.png">
+    <meta property="og:image:secure_url" content="http://www.octopus.com.hk/og/images/octopus_share.png">
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="315">
+    <meta property="og:description" content="八達通是一種採用非接觸式智能卡的電子收費系統，使用八達通卡或產品，便可於公共交通工具、各種零售商店及設施輕鬆付款。">
+    <meta property="og:url" content="http://www.octopus.com.hk/tc/consumer/index.html">
+</head>
+<body>
+</body>
+<script src="https://oss-static.aqumon.com/alib/aqmnf/build/0.0.7/aqmnf_z_a.js"></script>
+<script>
+    window.aqmnf.fbridgeAqumonHk.showShareButton({
+      "show": true
+    });
+    setupWebViewJavascriptBridge((bridge) => {
+      bridge.registerHandler('getShareSNSContent', (data, responseCallback) => {
+        responseCallback({
+          "message": 'testtesttest1',
+          "url": 'https://aqumon-static.oss-cn-shanghai.aliyuncs.com/tools%2FtestShare.html',
+          "image": 'https://www.aqumon.com/_nuxt/img/q-logo.02ad826.png',
+          "description": 'testtesttest4'，
+          "fb": 828484917497482
+        });
+      });
+    });
+  </script>
+
+</html>
