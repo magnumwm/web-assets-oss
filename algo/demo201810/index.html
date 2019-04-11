@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="./index.css" />
+  <title>AQUMON</title>
+</head>
+
+<body>
+  <header>
+      <ul>
+          <!-- <li class="nav-bar-item"><a data-index='bar'>factor distribution</a></li> -->
+          <li class="nav-bar-item"><a data-index='scatter' class="nav-bar-item-active">Return and Factors</a></li>
+          <li class="nav-bar-item"><a data-index='tree' >Factor Engineering</a></li>
+          <li class="nav-bar-item"><a data-index='neural' >Neural Network</a></li>
+      </ul>
+  </header>
+  <main>
+    <!-- <section class="container container-bar">
+        <div id="bar"></div>
+    </section> -->
+    <section class="container container-scatter">
+        <div class="tool-bar"></div>
+        <div id="scatter">
+        </div>
+    </section>
+    <section class="container container-tree hide">
+        <div id="tree"></div>
+    </section>
+    <section class="container container-neural hide">
+        <div id="neural">
+          <iframe src="./neural/index.html" width='100%' height="750"></iframe>
+        </div>
+    </section>
+  </main>
+</body>
+<script src="https://oss-static.aqumon.com/alib/vendor/zepto/zepto-1.2.0.1-ext.min.js"></script>
+<script type="text/javascript" src="./lib/echarts.min.js"></script>
+<script type="text/javascript" src="./lib/dat.gui.min.js"></script>
+
+
+<script type="text/javascript" src="./data/bar.js"></script>
+<script type="text/javascript" src="./data/scatter.js"></script>
+<script type="text/javascript" src="./data/tree.js"></script>
+<script type="text/javascript" src="./index.js"></script>
+
+</html>
