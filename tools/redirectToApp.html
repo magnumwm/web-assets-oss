@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <script src="https://oss-static.aqumon.com/alib/aqmnf/build/0.0.7/aqmnf_z_a.min.js?asads=a"></script>
+  <script type="text/javascript">
+    var ua = navigator.userAgent;
+    if (window.aqmnf.fdevice.os.pc) {
+      location.href = 'https://smarthk.aqumon.com/#/register';
+    } else if (ua.indexOf('AQUMON-Android-APP') > -1 || ua.indexOf('AQUMON-iOS-APP') > -1) {
+      window.aqmnf.fbridgeAqumonHk.startInvestment();
+    } else if (window.aqmnf.fdevice.os.android) {
+      location.href = 'https://play.google.com/store/apps/details?id=com.aqumon.www';
+    } else {
+      location.href = 'https://itunes.apple.com/cn/app/aqumon/id1313188337';
+    }
+  </script>
+  <title>Aqumon</title>
+</head>
+
+<body>
+  <h2>redirecting...<h2>
+</body>
+</html>
