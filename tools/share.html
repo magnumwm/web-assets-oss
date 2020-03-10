@@ -1,0 +1,123 @@
+<!--用于cms生成blog模板-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-touch-fullscreen" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="snow" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="format-detection" content="telephone=no, email=no" />
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="MobileOptimized" content="320">
+  <meta name="screen-orientation" content="portrait">
+  <meta name="x5-orientation" content="portrait">
+  <meta name="full-screen" content="yes">
+  <meta name="x5-fullscreen" content="true">
+  <meta name="browsermode" content="application">
+  <meta name="x5-page-mode" content="app">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="keywords" content="{{keywords}}" />
+  <meta name="description" content="{{description}}" />
+  <meta property="og:title" content="{{title}}">
+  <meta property="og:image" content="{{banner_image}}">
+  <meta property="og:image:secure_url" content="{{banner_image}}">
+  <meta property="og:image:width" content="220">
+  <meta property="og:image:height" content="220">
+  <meta property="og:description" content="{{preview}}">
+  <meta property="og:url" content="{{url}}">
+  <script src="https://oss-static.aqumon.com/alib/aqmnf/build/0.0.7/aqmnf_z_a.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://oss-static.aqumon.com/assets/fonts/Exo.css" />
+  <style>
+    body {
+      padding: 10px;
+      font-family: "Exo-Regular", "Exo-Medium", "PingFangSC", "微软雅黑", "Helvetica Neue", 'Microsoft Yahei', Tahoma, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+    }
+    img {
+      width: 100% !important;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      height: auto !important;
+    }
+
+    p {
+      font-size: 16px;
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.3;
+      padding-bottom: 18px 0;
+    }
+
+    .author-date time,
+    .author-date span {
+      font-size: 12px;
+      color: #4f4f4f;
+    }
+
+    .author-date {
+      margin-bottom: 25px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>{{title}}</h1>
+  <div class='author-date'>
+    <span>{{authors}} /</span>
+    <time>{{effective_time}}</time>
+  </div>
+  <div>
+    {{content | safe}}
+  </div>
+</body>
+<script>
+      if (window.location.href.indexOf("localhost") === -1 && window.location.href.indexOf("file://") === -1) {
+        window.document.domain = "aqumon.com";
+      }
+      if (navigator.userAgent.indexOf('AQUMON-iOS-APP') >= 0) {
+        window.aqmnf.fbridgeAqumonHk.showShareButton({
+          "show": true
+        });
+        setupWebViewJavascriptBridge((bridge) => {
+          bridge.registerHandler('getShareSNSContent', (data, responseCallback) => {
+            responseCallback({
+              "message": "{{title}}",
+              "url": '{{url}}',
+              "image": '{{banner_image}}' + '?x-oss-process=image/resize,h_300',
+              "description": '{{preview}}',
+              "thumbnail": '{{banner_thumbnail}}'
+            });
+          });
+          bridge.registerHandler('userClickBack', (data, responseCallback) => {
+            window.aqmnf.fbridgeAqumonHk.showShareButton({
+              "show": false
+            });
+            responseCallback();
+          });
+        });
+        // debugger;
+      }
+      if (navigator.userAgent.match(/AQUMON-ANDROID-APP|AQUMON-iOS-APP|QZHITOU-iOS-APP|QZHITOU-ANDROID-APP/g)) {
+        for (var i=0; i<document.getElementsByClassName('aqm-app-show').length; i++) {
+              document.getElementsByClassName('aqm-app-show')[i].style.display='none'
+        }
+      }
+      var fcors= aqmnf.fcors;
+      var cors = new fcors();
+      window.onload=function(){
+        cors.trigger({ eventName: "contentHeight", target: parent, message: document.documentElement.scrollHeight, url: "*" })
+      }
+
+</script>
+</html>
