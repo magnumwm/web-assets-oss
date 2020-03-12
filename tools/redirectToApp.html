@@ -9,10 +9,10 @@
   <meta name="description" content="" />
   <script src="https://oss-static.aqumon.com/alib/aqmnf/build/0.0.7/aqmnf_z_a.min.js?asads=a"></script>
   <script type="text/javascript">
-    var ua = navigator.userAgent;
+    var ua = navigator.userAgent.toUpperCase();
     if (window.aqmnf.fdevice.os.pc) {
       location.href = 'https://smarthk.aqumon.com/#/register';
-    } else if (ua.indexOf('AQUMON-Android-APP') > -1 || ua.indexOf('AQUMON-iOS-APP') > -1) {
+    } else if (ua.indexOf('AQUMON-ANDROID-APP') > -1 || ua.indexOf('AQUMON-iOS-APP') > -1 || ua.indexOf('AQUMON-ANDROID2-APP') > -1) {
       window.aqmnf.fbridgeAqumonHk.startInvestment();
     } else if (window.aqmnf.fdevice.os.android) {
       location.href = 'https://play.google.com/store/apps/details?id=com.aqumon.www';

@@ -30,7 +30,7 @@
   <meta property="og:image:height" content="220">
   <meta property="og:description" content="{{preview}}">
   <meta property="og:url" content="{{url}}">
-  <script src="https://oss-static.aqumon.com/alib/aqmnf/build/0.0.7/aqmnf_z_a.min.js"></script>
+  <script src="https://oss-static.aqumon.com/alib/aqmnf/build/0.0.8/aqmnf_z_a.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://oss-static.aqumon.com/assets/fonts/Exo.css" />
   <style>
     body {
@@ -85,7 +85,9 @@
       if (window.location.href.indexOf("localhost") === -1 && window.location.href.indexOf("file://") === -1) {
         window.document.domain = "aqumon.com";
       }
-      if (navigator.userAgent.indexOf('AQUMON-iOS-APP') >= 0) {
+      var isAQMapp = aqmnf.fappinfo.isIosApp || aqmnf.fappinfo.isAndroidApp;
+      var isQZTapp = aqmnf.fappinfo.isQzhitouIos || aqmnf.fappinfo.isQzhitouAndroid;
+      if (isAQMapp) {
         window.aqmnf.fbridgeAqumonHk.showShareButton({
           "show": true
         });
@@ -108,7 +110,7 @@
         });
         // debugger;
       }
-      if (navigator.userAgent.match(/AQUMON-ANDROID-APP|AQUMON-iOS-APP|QZHITOU-iOS-APP|QZHITOU-ANDROID-APP/g)) {
+      if (isAQMapp || isQZTapp) {
         for (var i=0; i<document.getElementsByClassName('aqm-app-show').length; i++) {
               document.getElementsByClassName('aqm-app-show')[i].style.display='none'
         }
