@@ -39,10 +39,14 @@
         langMap = {
           'zh-Hans': 'zh_cn',
           'zh-Hant': 'zh_tw',
+          'en': 'en',
+          'zh-hans': 'zh_cn',
+          'zh-hant': 'zh_tw',
           'en': 'en'
         }
         if (id && lang) {
           location.replace('https://www.aqumon.com/webview?content=news&id=' + id[1] + '&lang=' + langMap[lang[1]])
+          throw new Error('block request')
         }
       }
     }
