@@ -30,26 +30,6 @@
   <meta property="og:image:height" content="220">
   <meta property="og:description" content="{{preview}}">
   <meta property="og:url" content="{{url}}">
-  <script type="text/javascript">
-    if (window.top === window) {
-      var id = location.href.match(/blog\/([^]+)\/share/)
-      var lang = location.search.match(/[?|&]language\=([^&]+)/)
-      var frameOption = location.search.match(/[?|&]forshare\=([^&]+)/)
-      if (frameOption && frameOption[1]) {
-        langMap = {
-          'zh-Hans': 'zh_cn',
-          'zh-Hant': 'zh_tw',
-          'en': 'en',
-          'zh-hans': 'zh_cn',
-          'zh-hant': 'zh_tw',
-        }
-        if (id && lang) {
-          location.replace('https://www.aqumon.com/webview?content=news&id=' + id[1] + '&lang=' + langMap[lang[1]])
-          throw new Error('block request')
-        }
-      }
-    }
-  </script>
   <script src="https://oss-static.aqumon.com/alib/aqmnf/build/0.0.8/aqmnf_z_a.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://oss-static.aqumon.com/assets/fonts/Exo.css" />
   <style>
